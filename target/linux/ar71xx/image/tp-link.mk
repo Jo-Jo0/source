@@ -484,7 +484,16 @@ define Device/tl-wr720n-v4
     TPLINK_HWID := 0x07200104
     CONSOLE := ttyATH0,115200
 endef
-TARGET_DEVICES += tl-wr703n-v1 tl-wr710n-v1 tl-wr710n-v2 tl-wr710n-v2.1 tl-wr720n-v3 tl-wr720n-v4
+
+define Device/tl-wa901nd-v5
+  $(Device/tplink-4mlzma)
+  DEVICE_TITLE := TP-LINK TL-WA901N/ND v5
+  BOARDNAME := TL-WA901ND-v5
+  DEVICE_PROFILE := TLWA901
+  TPLINK_HWID := 0x09010005
+  IMAGE/factory.bin := append-rootfs | mktplinkfw factory -C EU
+endef
+TARGET_DEVICES += tl-wa901nd-v1 tl-wa901nd-v2 tl-wa901nd-v3 tl-wa901nd-v4 tl-wa901nd-v5
 
 define Device/tl-wr740n-v1
     $(Device/tplink-4m)
